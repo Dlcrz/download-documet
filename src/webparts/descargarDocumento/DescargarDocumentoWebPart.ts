@@ -14,6 +14,8 @@ import { IDescargarDocumentoProps } from './components/IDescargarDocumentoProps'
 
 export interface IDescargarDocumentoWebPartProps {
   description: string;
+  documentName: string;
+  downloadLink: string;
 }
 
 export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDescargarDocumentoWebPartProps> {
@@ -29,7 +31,9 @@ export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDe
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName, 
+        documentName: this.properties.documentName,
+        downloadLink: this.properties.downloadLink
       }
     );
 
@@ -97,25 +101,32 @@ export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDe
     return Version.parse('1.0');
   }
 
+
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return {
-      pages: [
-        {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
-          groups: [
-            {
-              groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
-            }
-          ]
-        }
-      ]
-    };
-  }
+  return {
+    pages: [
+      {
+        header: {
+          description: strings.PropertyPaneDescription
+        },
+        groups: [
+          {
+            groupName: strings.BasicGroupName,
+            groupFields: [
+              PropertyPaneTextField('description', {
+                label: strings.DescriptionFieldLabel
+              }),
+              PropertyPaneTextField('documentName', {
+                label: 'Nombre del documento'
+              }),
+              PropertyPaneTextField('downloadLink', {
+                label: 'Enlace de descarga'
+              })
+            ]
+          }
+        ]
+      }
+    ]
+  };
+}
 }

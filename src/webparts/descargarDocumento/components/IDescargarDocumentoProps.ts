@@ -4,4 +4,7 @@ export interface IDescargarDocumentoProps {
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
+
+  documentName: string;
+  downloadLink: string;
 }
