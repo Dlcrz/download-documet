@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.15.1",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "download-documet",
+    "libraryId": "ec191373-0e6e-4c22-91c6-2a79336214e0",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "download-documet",
+    "solutionShortDescription": "download-documet description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
