@@ -11,6 +11,7 @@ import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'DescargarDocumentoWebPartStrings';
 import DescargarDocumento from './components/DescargarDocumento';
 import { IDescargarDocumentoProps } from './components/IDescargarDocumentoProps';
+import { setupSP } from './pnpjsConfig';
 
 export interface IDescargarDocumentoWebPartProps {
   description: string;
@@ -43,6 +44,7 @@ export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDe
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
       this._environmentMessage = message;
+      setupSP(this.context);
     });
   }
 
