@@ -5,7 +5,7 @@ import { IconButton } from '@fluentui/react';
 import { getSP } from '../pnpjsConfig';
 
 export default function DescargarDocumento(props: IDescargarDocumentoProps): JSX.Element {
-  const { documentName, downloadLink } = props;
+  const { documentName, downloadLink, DirName } = props;
 
   const [latestFileUrl, setLatestFileUrl] = React.useState<string | null>(null);
 
@@ -21,7 +21,7 @@ export default function DescargarDocumento(props: IDescargarDocumentoProps): JSX
 
         const sp = getSP();
         const items = await sp.web.lists
-          .getByTitle('DocumentoSGD')
+          .getByTitle(DirName)
           .items
           .select('File/Name', 'File/ServerRelativeUrl', 'File/TimeLastModified', 'FileDirRef')
           .expand('File')
@@ -62,6 +62,7 @@ export default function DescargarDocumento(props: IDescargarDocumentoProps): JSX
   };
 
   return (
+
     <div className={styles.descargarContainer}>
       <div className={styles.inputRow}>
         <span className={styles.textInput}>{documentName}</span>

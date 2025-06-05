@@ -18,11 +18,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
     "group": { "default": "Advanced" },
-    "title": { "default": "descargar-documento" },
+    "title": { "default": "Descargar documento desde una carpeta" },
     "description": { "default": "descargar-documento description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "descargar-documento"
+      "description": "Descargar documento desde una carpeta"
     }
   }]
 }

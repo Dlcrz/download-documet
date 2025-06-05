@@ -7,4 +7,5 @@ export interface IDescargarDocumentoProps {
 
   documentName: string;
   downloadLink: string;
+  DirName: string;
 }

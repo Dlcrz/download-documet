@@ -17,6 +17,7 @@ export interface IDescargarDocumentoWebPartProps {
   description: string;
   documentName: string;
   downloadLink: string;
+  DirName: string;
 }
 
 export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDescargarDocumentoWebPartProps> {
@@ -34,7 +35,8 @@ export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDe
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
         userDisplayName: this.context.pageContext.user.displayName, 
         documentName: this.properties.documentName,
-        downloadLink: this.properties.downloadLink
+        downloadLink: this.properties.downloadLink,
+        DirName: this.properties.DirName
       }
     );
 
@@ -115,14 +117,16 @@ export default class DescargarDocumentoWebPart extends BaseClientSideWebPart<IDe
           {
             groupName: strings.BasicGroupName,
             groupFields: [
-              PropertyPaneTextField('description', {
-                label: strings.DescriptionFieldLabel
+              PropertyPaneTextField('DirName', {
+                label: 'Nombre de la carpeta principal',
+                description: 'Nombre de la carpeta donde se guardan los documentos',
+              }),
+              PropertyPaneTextField('downloadLink', {
+                label: 'Ruta de carpeta',
+                description: 'Ruta de la carpeta donde se guardan los documentos. Por ejemplo: /sites/Intranet/Documentos compartidos/Carpeta',
               }),
               PropertyPaneTextField('documentName', {
                 label: 'Nombre del documento'
-              }),
-              PropertyPaneTextField('downloadLink', {
-                label: 'Enlace de descarga'
               })
             ]
           }
