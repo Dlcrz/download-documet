@@ -62,17 +62,18 @@ export default function DescargarDocumento(props: IDescargarDocumentoProps): JSX
   };
 
   return (
-
-    <div className={styles.descargarContainer}>
-      <div className={styles.inputRow}>
-        <span className={styles.textInput}>{documentName}</span>
-        <IconButton
-          iconProps={{ iconName: 'Download' }}
-          title="Descargar"
-          ariaLabel="Descargar"
-          onClick={handleDownloadClick}
-          disabled={!downloadLink}
-        />
+    <div id="documentdownWrapper-webpart" className={styles.documentdownWrapper}>
+      <div className={styles.descargarContainer}>
+        <div className={styles.inputRow}>
+          <span className={styles.textInput}>{documentName}</span>
+          <IconButton
+            iconProps={{ iconName: 'Download' }}
+            title="Descargar"
+            ariaLabel="Descargar"
+            onClick={handleDownloadClick}
+            disabled={!downloadLink}
+          />
+        </div>
       </div>
     </div>
   );

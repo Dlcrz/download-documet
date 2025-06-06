@@ -1,11 +1,18 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
 
-  :global {
+  /*:global {
     .CanvasComponent.LCS .CanvasZone:not(.CanvasZone--fullWidth) .ControlZone {
       padding: 0px !important;
     }
-  }
+  }*/
+
+  .documentdownWrapper {
+  margin-top: -16px !important; 
+  margin-bottom: -16px !important;
+  padding: 0 !important;
+  width: 100%;
+}
 
 .descargarContainer {
   padding: 4px;
